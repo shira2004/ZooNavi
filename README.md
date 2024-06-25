@@ -119,7 +119,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 ## A Visual Guide
-Homepage:<br><br>
 ![home](https://github.com/shira2004/ZooNavi/assets/145601791/4b70c2d8-4d8e-48df-befd-213533d0c3fd)
 
 ![manager](https://github.com/shira2004/ZooNavi/assets/145601791/18174205-81c0-48a2-90d9-f0e4a0c139dc)
