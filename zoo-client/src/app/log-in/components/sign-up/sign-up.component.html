@@ -1,0 +1,62 @@
+<!-- <p>sign-up works!</p> -->
+<div class="form-container">
+    <form class="example-form" [formGroup]="SignUpForm">
+ 
+
+      <div style="margin-top: 10px">
+        <mat-form-field style="width:390px;">
+          <mat-label>Enter your userName</mat-label>
+          <input matInput placeholder="user name" formControlName="userName" required>
+          <mat-error *ngIf="SignUpForm.get('userName')!.hasError('required')">
+            userName is required.
+          </mat-error>
+         
+        </mat-form-field>
+      </div>
+
+  
+      <div style="margin-top: 10px">
+        <mat-form-field style="width:390px;">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required>
+          <mat-error *ngIf="SignUpForm.get('email')!.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="SignUpForm.get('email')!.hasError('email')">
+            Enter a valid email address.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div style="margin-top: 10px;">
+        <mat-form-field style="width: 390px;">
+          <mat-label>Enter your password</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="SignUpForm.get('password')!.hasError('required')">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="SignUpForm.get('password')!.hasError('pattern')">
+            Password must contain at least one letter, at least one digit, and be at least 6 characters long.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <label for="fileInput"  style="cursor: pointer;">
+        <img src="../../../../assets/images/image.png" >
+      </label>
+      <input id="fileInput" type="file" style="display: none;" (change)="onFileSelected($event)"  accept="image/*" />
+  
+      <br />
+      <button mat-raised-button class="submit" (click)="submit()" [disabled]="SignUpForm.invalid">Sign Up</button>
+    </form>
+  
+    <br/>
+    <a (click)="GoToSignIn()">Already have an account? Sign in</a>
+  </div>
+  
+  <!-- <input type="text"> -->
+  <!-- <button (click)="log()"></button> -->
+  
+ 

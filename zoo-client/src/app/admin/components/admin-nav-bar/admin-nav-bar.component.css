@@ -1,0 +1,171 @@
+/*Start Global*/
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 12px;
+}
+body.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    max-width: 60%;
+}
+h2 {
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 100px;
+    font-weight: normal;
+    margin: 0 0 -55px;
+}
+h1, h3 {
+    font-family: "Source Code Pro", sans-serif;
+    font-size: 47px;
+    font-weight: bold;
+    letter-spacing: 9.4px;
+    margin: 0 0 15px;
+}
+p {
+    color: #515151;
+    line-height: 27px;
+}
+
+/*End Global*/
+
+/*Start Mutual*/
+
+.fa-asterisk, .a-CTA, h2, header .navigation-bar a:hover, header nav.active .navigation-bar a:hover, footer .social-media .links a:hover, .copyright .info li a, .copyright .CTA li a:hover {
+    color: #a96700;
+}
+header nav .navigation-bar .underline, header .text .button button:hover, .contact .form form button:hover, .contact .text i:hover {
+    background-color: #a96700;
+}
+header .navigation-bar ul li, header .text, .about-us .text, .reservation .text, .menu .box-model, .menu .text, .fixed-image .text, footer, .copyright, .contact .text i {
+    text-align: center;
+}
+header nav, header .navigation-bar ul, .about-us, .reservation, .about-us .image-container, .reservation .image-container, .menu, .menu .menu-image-container, footer .contact-container, .copyright ul, .contact {
+    display: flex;
+}
+
+header, header nav .toggle span, header .navigation-bar a, header .text, header .text .arrow .left, header .text .arrow .right, .recipes, .menu .box-image-container, .fixed-image .text, .copyright, .copyright .arrow-up {
+    position: relative;
+}
+
+.recipes .text, .fixed-image .text, .menu .box-image-container, .menu .box-image-container .box-image {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);}
+
+.menu {
+    padding: 60px;
+}
+.menu .box-model {
+    display: none;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    z-index: 20;
+    background-color: rgba(0,0,0,.7);
+}
+.menu .box-model.active {
+    display: block;
+}
+.menu .box-model.active body {
+    overflow: hidden;
+}
+.menu .box-model .close {
+    color: #ccc;
+    right: 25px;
+    top: 10px;
+    z-index: 20;
+}
+.menu .box-model .arrow .arrow-right,.menu .box-model .arrow .arrow-left {
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    top: 50%;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    transform: rotate(45deg);
+    z-index: 20;
+}
+.menu .box-model .arrow .arrow-left {
+    left: 20px;
+    transform: rotate(-135deg);
+}
+.menu .box-image-container {
+    height: 100%;
+}
+.menu .box-image-container .box-image img.active {
+    animation: scale .5s;
+}
+@keyframes scale {
+    from {transform: scale(0,0)}
+    to {transform: scale(1,1)}
+}
+.menu .menu-image-container {
+    flex-wrap: wrap;
+    flex: 60%;
+}
+.menu .menu-image-container .image {
+    margin: 0 20px 20px 0;
+    flex: calc( 50% - 40px);
+}
+.menu .text {
+    flex: 55%;
+    padding: 40px 0 0 62px;
+}
+.menu .text h3 {
+    color: #000;;
+}
+.menu .text .fa-asterisk {
+    color: #9a9998;
+}
+
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}

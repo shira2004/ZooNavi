@@ -1,0 +1,14 @@
+<div style="z-index: 3000; "></div>
+<div class="dialog-container" >
+    <h2 mat-dialog-title class="centered-content">{{ data.text1 }}</h2>
+    <div mat-dialog-content class="centered-content">
+      <p>{{ data.text2 }}</p>
+      <img [src]="data.status === 1 ? '../../../assets/images/no.gif' : '../../../assets/images/good.gif'" alt="" style="max-width: 50%;">
+
+    </div>
+    <div mat-dialog-actions class="button-container">
+      <button class="button-8" role="button" (click)="onClose(); data.button.onClick()" style="margin-left: 3vw;">{{ data.button.label }}</button>
+      <button class="button-8" role="button" (click)="onClose()">Close</button>
+
+    </div>
+  

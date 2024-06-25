@@ -1,0 +1,80 @@
+
+<div style="margin-top: 30vh ;margin-bottom: 30vh; z-index: 1000;">
+
+ <mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+    <ng-template matStepLabel>Fill out cage info</ng-template>
+ <mat-form-field style="width:190px;">
+  <mat-label>Latitude</mat-label>
+  <input matInput formControlName="latitude">
+  <mat-error *ngIf="firstFormGroup.get('latitude')!.hasError('required')">Latitude is required</mat-error>
+  <mat-error *ngIf="firstFormGroup.get('latitude')!.hasError('min')">Latitude must be at least -90</mat-error>
+  <mat-error *ngIf="firstFormGroup.get('latitude')!.hasError('max')">Latitude must be at most 90</mat-error>
+</mat-form-field>
+
+<mat-form-field style="width:190px; padding-left: 7vw;">
+  <mat-label>Longitude</mat-label>
+  <input matInput formControlName="longitude">
+  <mat-error *ngIf="firstFormGroup.get('longitude')!.hasError('required')">Longitude is required</mat-error>
+  <mat-error *ngIf="firstFormGroup.get('longitude')!.hasError('min')">Longitude must be at least -180</mat-error>
+  <mat-error *ngIf="firstFormGroup.get('longitude')!.hasError('max')">Longitude must be at most 180</mat-error>
+</mat-form-field>
+    <br/>
+    <mat-form-field style="width:450px;">
+      <mat-label>cage note</mat-label>
+      <input matInput formControlName="contentCtrl">
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </form>
+</mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" label="Fill out animal info">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field style="width:450px;">
+          <mat-label>animal description</mat-label>
+          <textarea matInput formControlName="AnimalDescription" required minlength="20" rows="5" style="width:100%;"></textarea>
+        </mat-form-field>
+        <br/>
+        <mat-form-field style="width:450px;">
+          <mat-label>AnimalName</mat-label>
+          <input matInput formControlName="AnimalName"  required minlength="2">
+        </mat-form-field>
+
+        <br/>
+        <label for="fileInput" style="cursor: pointer;">
+          <img src="../../../../assets/images/image.png" >
+        </label>
+        <br/>
+        <input id="fileInput" type="file" style="display: none;" (change)="onFileSelected($event)"  accept="image/*" />
+       
+
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+        
+    </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div>
+        <p>Your Summary:</p>
+        <p>latitude: {{ firstFormGroup.value.latitude }}</p>
+        <p>longitude: {{ firstFormGroup.value.longitude }}</p>
+        <p>AnimalName:{{secondFormGroup.value.AnimalName}}</p>
+        <p>AnimalDescription: {{ secondFormGroup.value.AnimalDescription }}</p>
+     
+      </div>
+      <div>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="commit()">finish</button>
+      </div>
+    </mat-step>
+
+</mat-stepper> 
+
+</div>

@@ -1,0 +1,65 @@
+
+
+<div class="stepper-container">
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step >
+        <form >
+        <ng-template matStepLabel>choose animal to update</ng-template>
+       
+        <mat-chip-listbox aria-label="Animal selection" style="height: 6vh;">
+          <mat-chip-option *ngFor="let animal of animalList" (click)="animalSelected(animal.animalId)">
+            <img *ngIf="animal.image"
+             style="max-width: 30%;" 
+             [src]="'data:/images/png;base64,' + animal.image" 
+             alt="picture">
+            {{ animal.name }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+        <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+    </mat-step>
+
+      <mat-step>
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out animal info</ng-template>
+         
+        
+        <mat-form-field style="width:450px;">
+          <mat-label>AnimalName</mat-label>
+          <input matInput formControlName="AnimalName"  required minlength="2">
+        </mat-form-field>
+        <br/>
+
+    <mat-form-field style="width:450px;">
+      <mat-label>animal description</mat-label>
+      <textarea matInput formControlName="AnimalDescription" required minlength="20"
+        rows="5"></textarea>
+    </mat-form-field> 
+
+         
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <div>
+          <p>Your Summary:</p>
+          <p>AnimalName:{{firstFormGroup.value.AnimalName}}</p>
+          <p>AnimalDescription: {{ firstFormGroup.value.AnimalDescription }}</p>
+       
+        </div>
+        <div>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="commit()">finish</button>
+        </div>
+      </mat-step>
+   
+</mat-stepper>
+</div>
+

@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  }
+
+  .submit{
+    width: 390px;
+    height: 37px;
+    background-color: #FBE374;
+  }
+  .form-container{
+    z-index: 1000;
+  }
+  

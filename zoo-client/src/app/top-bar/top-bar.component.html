@@ -1,0 +1,27 @@
+
+<!-- <app-sign-up (onLogIn)="handleLogIn($event)"></app-sign-up> -->
+<header>
+<nav>
+    <div class="logo">
+        <a href="index.html" style="display: inline-block;">
+            <img src="../../assets/images/logo1.png" alt="Rosa Logo" style="width: 100px; height: auto;">
+        </a>
+    </div>
+    <div class="toggle">
+        <span class="first"></span>
+        <span class="middle"></span>
+        <span class="last"></span>
+    </div>
+    <div class="navigation-bar">
+        <ul>
+            <li class="active"><a href="index.html">Home<span class="underline"></span></a></li>
+        
+            <li><a  (click)="map()">maps<span class="underline"></span></a></li>
+            <li><a  (click)="calculate_trip()">trip manage<span class="underline"></span></a></li>
+            <li><a (click)="my_account()" >my account<span class="underline"></span></a></li>
+            <li *ngIf="!(isLogIn$| async)"><a (click)="log_in()">Log In<span class="underline"></span></a></li>
+            <li *ngIf="(isLogIn$ | async)"><a (click)="log_out()">Log Out<span class="underline"></span></a></li>
+        </ul>
+    </div>
+</nav>
+</header>

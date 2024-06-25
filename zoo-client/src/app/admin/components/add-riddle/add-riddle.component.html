@@ -1,0 +1,88 @@
+<div class="stepper-container">
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step >
+        <form >
+        <ng-template matStepLabel>choose animal to update</ng-template>
+       
+        <mat-chip-listbox aria-label="Animal selection" style="height: 6vh;">
+          <mat-chip-option *ngFor="let animal of animalList" (click)="animalSelected(animal.animalId)">
+            <img *ngIf="animal.image"
+             style="max-width: 30%;" 
+             [src]="'data:/images/png;base64,' + animal.image" 
+             alt="picture">
+            {{ animal.name }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+        <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+    </mat-step>
+        <mat-step>
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Fill out riddle info</ng-template>
+
+                <mat-form-field style="width:450px;">
+                  <mat-label>Riddle Content</mat-label>
+                  <textarea matInput formControlName="question" required minlength="10" rows="3"></textarea>
+                  <mat-error *ngIf="firstFormGroup.get('question')!.hasError('required')">Question is required</mat-error>
+                  <mat-error *ngIf="firstFormGroup.get('question')!.hasError('minlength')">Question must be at least 10 characters long</mat-error>
+                </mat-form-field>
+                
+                <br/>
+                
+                <mat-form-field style="width:190px;">
+                  <mat-label>Ans1</mat-label>
+                  <input matInput formControlName="ans1">
+                  <mat-error *ngIf="firstFormGroup.get('ans1')!.hasError('required')">Ans1 is required</mat-error>
+                  <mat-error *ngIf="firstFormGroup.get('ans1')!.hasError('minlength')">Ans1 must be at least 2 characters long</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field style="width:190px; padding-left: 7vw;">
+                  <mat-label>Ans2</mat-label>
+                  <input matInput formControlName="ans2">
+                  <mat-error *ngIf="firstFormGroup.get('ans2')!.hasError('required')">Ans2 is required</mat-error>
+                  <mat-error *ngIf="firstFormGroup.get('ans2')!.hasError('minlength')">Ans2 must be at least 2 characters long</mat-error>
+                </mat-form-field>
+                
+                <br/>
+                
+                <mat-form-field style="width:190px; padding-left: 7vw;">
+                  <mat-label>Ans3</mat-label>
+                  <input matInput formControlName="ans3">
+                  <mat-error *ngIf="firstFormGroup.get('ans3')!.hasError('required')">Ans3 is required</mat-error>
+                  <mat-error *ngIf="firstFormGroup.get('ans3')!.hasError('minlength')">Ans3 must be at least 2 characters long</mat-error>
+                </mat-form-field>
+                <mat-form-field style="width:190px; padding-left: 7vw;">
+                    <mat-label>good ans number</mat-label>
+                    <input matInput formControlName="good_ans" >
+                  </mat-form-field>
+                  <br/>
+        
+                 
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+
+                    </div>
+                  </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <div>
+              <p>Your Summary:</p>
+              <p>question: {{ firstFormGroup.value.question }}</p>
+              <p>ans1: {{ firstFormGroup.value.ans1 }}</p>
+              <p>ans2:{{firstFormGroup.value.ans2}}</p>
+              <p>ans3: {{ firstFormGroup.value.ans3 }}</p>
+              <p>good_ans: {{ firstFormGroup.value.good_ans }}</p>
+           
+            </div>
+            <div>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+              <button mat-button (click)="commit()">finish</button>
+            </div>
+          </mat-step>
+       
+    </mat-stepper>
+</div>

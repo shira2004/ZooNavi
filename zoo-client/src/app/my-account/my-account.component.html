@@ -1,0 +1,57 @@
+<div style="width: 100vh; height: 80vh;">
+<aside class="profile-card">
+    <header>
+  
+        <img *ngIf="user?.userImage"
+         class="avatar-image" 
+        [src]="'data:/images/png;base64,' + user.userImage"
+         alt="picture">
+  
+      <h1>
+              {{user.userName}}
+            </h1>
+   
+      <h2>
+        Zoo Quest Rewards: Riddle, Collect, Redeem!
+        <br/>
+      </h2>
+      <h1>
+        
+        <img src="../../assets/images/points.png" alt="">
+        {{userPoints}}
+      </h1>
+    </header>
+  
+    <div class="profile-bio">
+  
+      <p>
+        Solve riddles while exploring the zoo to earn points, then redeem them for rewards at the kiosk. Let the adventure begin!
+      </p>
+  
+    </div>
+
+    <ul class="profile-social-links">
+      <li>
+        <a target="_blank" href="https://www.facebook.com/creativedonut">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://twitter.com/dropyourbass">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/vipulsaxena">
+          <i class="fa fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="https://www.behance.net/vipulsaxena">
+         
+          <i class="fa fa-behance"></i>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  

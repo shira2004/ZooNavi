@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  :host .mat-stepper-horizontal {
+    margin-top: 8px;
+    width: 100%; /* Adjust the width as needed */
+    max-width: 900px; /* Adjust the maximum width as needed */
+    overflow-y: auto; /* Add scrollbar if content exceeds viewport height */
+    
+  }
+  * {
+    font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+  }
+  
+  :host .mat-mdc-form-field {
+    margin-top: 16px;
+    
+  }
+  .stepper-container {
+    margin-top: 30vh;
+    margin-bottom: 30vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Add scrollbar if content exceeds viewport */
+    
+  }
+  

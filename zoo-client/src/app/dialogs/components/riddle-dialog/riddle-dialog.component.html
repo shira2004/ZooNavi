@@ -1,0 +1,19 @@
+<div style="z-index: 3000; "></div>
+<div class="dialog-container" >
+    <h2 mat-dialog-title class="centered-content">{{ data.text1 }}</h2>
+    <div mat-dialog-content class="centered-content">
+    
+  <img src="../../../../assets/images/question-mark.gif" alt="">
+      <p>{{ data.text2 }}</p>
+    
+    </div>
+    <div mat-dialog-actions class="button-container">
+      <button class="button-8" role="button" (click)="onClose(); data.button1.onClick()">{{ data.button1.label }}</button>
+
+      <br/>
+      <button class="button-8" role="button" style="margin-left: 10px;" (click)="onClose(); data.button2.onClick()">{{ data.button2.label }}</button>
+      <br/>
+      <button class="button-8" role="button" style="margin-left: 10px;" (click)="onClose(); data.button3.onClick()">{{ data.button3.label }}</button>
+
+    </div>
+  

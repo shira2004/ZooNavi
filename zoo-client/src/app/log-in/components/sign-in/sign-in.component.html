@@ -1,0 +1,38 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="SignInForm">
+
+    <div style="margin-top: 10px">
+      <mat-form-field style="width:390px;">
+        <mat-label>Enter your UserName</mat-label>
+        <input matInput placeholder="userName" formControlName="userName" required>
+        <mat-error *ngIf="SignInForm.get('userName')!.hasError('required')">
+          UserName is required.
+        </mat-error>
+        
+      </mat-form-field>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <mat-form-field style="width: 390px;">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="SignInForm.get('password')!.hasError('required')">
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    
+
+    <br />
+    <button mat-raised-button class="submit" (click)="submit()" [disabled]="SignInForm.invalid">Sign In</button>
+  </form>
+
+  <br/>
+  <a (click)="GoToSignUp()">Don't have an account? Sign Up</a>
+</div>
+
+<!-- <img src="../../../../assets/images/search.gif" alt=""> -->
